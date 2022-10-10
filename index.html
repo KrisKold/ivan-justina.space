@@ -24,13 +24,12 @@
         min-height: 100%;
         background-position: center;
         background-size: cover;
-        position: relative;
     }
 
 
     .gallery-img {
         width: 100%;
-        height: 800px;
+        height: 700px;
         object-fit: cover;
     }
 
@@ -74,7 +73,7 @@
 
 
     .bgimg2 {
-        background-image: url("5.jpg")
+        background-image: url("5.JPG")
     }
 
     /* Fading animation */
@@ -107,16 +106,15 @@
         /* The image used */
         background-image: url("1.JPG");
 
+
+
         /* Full height */
         height: 100%;
 
         /* Center and scale the image nicely */
-        background-position: center top;
+        background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        position: relative;
-
-        
     }
 
     /* Position text in the middle of the page/image */
@@ -141,14 +139,14 @@
 <header class="bg-text w3-display-container w3-wide">
     <h2 class="title">Іван & Юстина</h2>
     <h1 class="w3-large">Ми одружуємося</h1>
-    <p>19 листопада 2022</p>
+    <p>19 листопада 20212</p>
 </header>
 
 <!-- Navbar (sticky bottom) -->
 <div class="w3-bottom w3-hide-small">
     <div class="w3-bar w3-white w3-center w3-padding w3-opacity-min w3-hover-opacity-off">
         <a href="#us" style="width:33%" class="w3-bar-item w3-button">Іван & Юстина</a>
-        <a href="#wedding" style="width:33%" class="w3-bar-item w3-button">Церемонія</a>
+        <a href="#wedding" style="width:33%" class="w3-bar-item w3-button">Весільна Церемонія</a>
         <a href="#invitation" style="width:33%" class="w3-bar-item w3-button w3-hover-black">Запрошення</a>
     </div>
 </div>
@@ -157,15 +155,17 @@
 <div class="w3-container w3-padding-64 w3-pale-red" id="us">
     <div class="w3-content">
         <h1 class="w3-center w3-text-grey"><b>Іван & Юстина</b></h1>
+        <h2 class="w3-center w3-text-grey"><b>Ми створюємо сім'ю 🥰</b></h2>
         <div id="gallery-img"></div>
         <p>
             <i>
                 Незабаром відбудеться це неповторне та незабутнє свято - наше весілля.<br/>
                 Ми віримо, що цей день стане благословенним початком довгого та щасливого життя.<br/>
-                Тому, ми дуже хочемо розпочати наше подружнє життя поруч із самими близькими та найріднішими людьми.<br/>
-               
+                Тому, ми  хочемо розпочати наше подружнє життя поруч із самими близькими та найріднішими людьми.<br/>
+                <b id="name-span"></b>, ми будемо щасливі, якщо ви зможете стати частинкою нашого свята.
             </i>
         </p>
+        </p><br>
         <p class="w3-center"><a href="#wedding" class="w3-button w3-black w3-round w3-padding-large w3-large">Деталі
             весілля</a></p>
     </div>
@@ -183,20 +183,23 @@
 <div class="w3-container w3-padding-32 w3-pale-red w3-grayscale-min w3-center" id="wedding">
     <div class="w3-content">
         <div class="w3-row">
-            <div class="w3-half "  style="margin-top: 24px">
+            <div class="w3-half"  style="margin-top: 24px">
                 <img class="w3-round-large w3-grayscale-min" src="wedding-ceremony.jpg" style="width:95%;">
                 <h2>Весільна Церемонія</h2>
-                <p>Коли: <b>19 листопада 12:00-16:00</b></p>
+                <p>Коли: <b>19 листопада, 13:00-17:00</b></p>
                 <p>Де: <b>вул. Кар'єрна, 44, м. Київ</b></p>
 
             </div>
+            <div class="w3-half"  style="margin-top: 24px">
+                <div id="slide-show"></div>
+                <p style="text-align: left;"><i>
+                    🤩 Ми хочемо, щоб наше свято було сімейним та атмосферним.<br/>
+                    Будемо щасливі, якщо ви розділите з нами свято нашої сім’ї.<br/><br/>
+                    Трохи пізніше ми пришлемо детальну програму пікніку та церемонії.<br/>
+                    Для цього потрібно лише підтвердити свою присутність 😇<br/>
+                </i></p>
+            </div>
         </div>
-        <br><br>
-        <p style="text-align: left;"><i>
-            Будемо щасливі, якщо ви розділите з нами свято нашої сім’ї.<br/>
-            Трохи пізніше ми пришлемо детальну програму нашої церемонії.<br/>
-            Для цього потрібно лише підтвердити свою присутність 😇<br/>
-        </i></p>
     </div>
 </div>
 
@@ -209,8 +212,7 @@
         <button
                 onclick="document.getElementById('form-invitation-modal').style.display='block'"
                 id="answer-btn"
-                class="w3-button w3-round w3-red w3-opacity w3-hover-opacity-off" style="padding:8px 60px"
-        >
+                class="w3-button w3-round w3-red w3-opacity w3-hover-opacity-off" style="padding:8px 60px">
 
         </button>
     </p>
@@ -224,8 +226,7 @@
             <h2 class="w3-wide w3-center">ВИ ЗМОЖЕТЕ БУТИ?</h2>
             <p class="w3-center" id="form-invitation-sh"></p>
             <form>
-                <label class="w3-text-grey">Ваш телефон</label>
-                <br/> <br/>
+                <label class="w3-text-grey">Ваш телефон</label> 
                 <input class="w3-input w3-border" type="tel" id="phone-input" placeholder="Телефон..." name="phone">
                 <br/>
             </form>
@@ -265,7 +266,7 @@
     const name = url.searchParams.get("name");
     const phone = url.searchParams.get("phone") || '';
     const multiply = url.searchParams.get("m") === 'true'
-    const personal = url.searchParams.get("t") || 'Запрошуємо на весільну церемонію!'
+    const personal = url.searchParams.get("t") || 'Запрошуємо на Весільну церемонію!'
 
     const invitationModal = document.getElementById('form-invitation-modal')
 
@@ -285,11 +286,11 @@
     let imgNum
 
     function setImg() {
-        let random = getRandomIntInclusive(1, 10)
+        let random = getRandomIntInclusive(1, 14)
 
 
         if(random === imgNum) {
-            random = getRandomIntInclusive(1, 10)
+            random = getRandomIntInclusive(1, 14)
         }
 
         imgNum = random
