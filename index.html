@@ -247,7 +247,7 @@
     <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="padding:32px;max-width:600px;margin-top: 20px">
         <div class="w3-container w3-white w3-center">
             <h1 class="w3-wide" id="thanks-header"></h1>
-            <p>Ваша відповідь відправлена</p>
+            <p  id="thanks-subheader">Ваша відповідь відправлена</p>
         </div>
     </div>
 </div>
@@ -273,7 +273,7 @@
     document.getElementById('name-span').innerText = name;
     document.getElementById('name-title').innerText = name + '!';
     document.getElementById('personal-text').innerText = personal;
-    document.getElementById('thanks-header').innerText = name + '. Дякуємо';
+    document.getElementById('thanks-header').innerText = name + '! Дякуємо!';
     document.getElementById('form-invitation-sh').innerText = (name + '! Ми сподіваємось ви зможете приїхати.');
     document.getElementById('phone-input').value = phone;
 
@@ -319,9 +319,11 @@
         http.onreadystatechange = function () {
             if (http.readyState === 4) {
                 if (http.status === 200) {
+                    const answer = data.positiveAnswer ? 'Буду🎉🎉🎉' : 'Не можу бути😭😫😩🥺';
+
                     invitationModal.style.display = 'none'
+                    document.getElementById('thanks-subheader').innerText = 'Ваша відповідь "'+ answer +'" відправлена'
                     document.getElementById('form-thanks-invitation-modal').style.display = 'block'
-                } else {
 
                 }
             }
