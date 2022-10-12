@@ -262,7 +262,7 @@
 <script>
     const urStr = window.location.href;
     const url = new URL(urStr);
-    const name = url.searchParams.get("name");
+    const name = url.searchParams.get("name") || 'Пишка Володимирівна';
     const phone = url.searchParams.get("phone") || '';
     const multiply = url.searchParams.get("m") === 'true'
     const personal = url.searchParams.get("t") || 'Запрошуємо на Весільну церемонію!'
@@ -309,7 +309,7 @@
         const params = {
             name,
             phone: document.getElementById('phone-input').value,
-            type: data.positiveAnswer ? 'Буде🎉' : 'Не може бути😟️',
+            type: data.positiveAnswer ? 'Буде🎉🎉🎉' : 'Не може бути😭😭😭',
         }
 
         http.open("POST", url, true)
