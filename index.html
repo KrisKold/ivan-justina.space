@@ -263,7 +263,7 @@
 <script>
     const urStr = window.location.href;
     const url = new URL(urStr);
-    const name = url.searchParams.get("name") || 'Пишка Володимирівна';
+    const name = url.searchParams.get("name") || 'null!';
     const phone = url.searchParams.get("phone") || '';
     const multiply = url.searchParams.get("m") === 'true'
     const personal = url.searchParams.get("t") || 'Запрошуємо на Весільну церемонію!'
