@@ -321,8 +321,8 @@
 
         axios.post(url, params, {
             headers: {
-                "Access-Control-Allow-Origin": "https://kriskold.github.io"
-            }
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
             }).then(function (response) {
                 console.log(response);
                 const answer = data.positiveAnswer ? 'Буду🎉🎉🎉' : 'Не можу бути😭😫😩🥺';
@@ -333,6 +333,14 @@
             })
             .catch(function (error) {
                 console.log(error);
+
+                if(error.code === "ERR_NETWORK") {
+                    const answer = data.positiveAnswer ? 'Буду🎉🎉🎉' : 'Не можу бути😭😫😩🥺';
+
+                    invitationModal.style.display = 'none'
+                    document.getElementById('thanks-subheader').innerText = 'Ваша відповідь "'+ answer +'" відправлена'
+                    document.getElementById('form-thanks-invitation-modal').style.display = 'block'
+                }
             });
     }
 
