@@ -258,6 +258,7 @@
         </div>
     </div>
 </div>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
     function getRandomIntInclusive(min, max) {
         min = Math.ceil(min);
@@ -310,7 +311,6 @@
     setInterval(setImg, 6000)
 
     function sendAnswer(data) {
-        const http = new XMLHttpRequest()
         const url = "https://dzubak.com.ua/post_wedding_torchilo.php"
 
         const params = {
@@ -319,28 +319,18 @@
             type: data.positiveAnswer ? 'Буде🎉🎉🎉' : 'Не може бути😭😭😭',
         }
 
-        http.open("POST", url, true)
+        axios.post(url, params)
+            .then(function (response) {
+                console.log(response);
+                const answer = data.positiveAnswer ? 'Буду🎉🎉🎉' : 'Не можу бути😭😫😩🥺';
 
-        http.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
-
-        http.onreadystatechange = function () {
-            if (http.readyState === 4) {
-                if (http.status === 200) {
-                    const answer = data.positiveAnswer ? 'Буду🎉🎉🎉' : 'Не можу бути😭😫😩🥺';
-
-                    invitationModal.style.display = 'none'
-                    document.getElementById('thanks-subheader').innerText = 'Ваша відповідь "'+ answer +'" відправлена'
-                    document.getElementById('form-thanks-invitation-modal').style.display = 'block'
-
-                }
-            }
-        }
-
-        http.send(
-            Object.keys(params)
-                .map(key => `${key}=${encodeURIComponent(params[key]) || ""}`)
-                .join("&")
-        )
+                invitationModal.style.display = 'none'
+                document.getElementById('thanks-subheader').innerText = 'Ваша відповідь "'+ answer +'" відправлена'
+                document.getElementById('form-thanks-invitation-modal').style.display = 'block'
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
 
     const yesBtn = document.getElementById('submit-yes-button')
