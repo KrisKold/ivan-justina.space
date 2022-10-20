@@ -319,8 +319,11 @@
             type: data.positiveAnswer ? 'Буде🎉🎉🎉' : 'Не може бути😭😭😭',
         }
 
-        axios.post(url, params)
-            .then(function (response) {
+        axios.post(url, params, {
+            headers: {
+                "Access-Control-Allow-Origin": "https://kriskold.github.io"
+            }
+            }).then(function (response) {
                 console.log(response);
                 const answer = data.positiveAnswer ? 'Буду🎉🎉🎉' : 'Не можу бути😭😫😩🥺';
 
